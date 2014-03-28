@@ -1,19 +1,62 @@
 #Archlinux 
 
-##Why ArchLinux [top]
+##Why ArchLinux
+
+###Philosophy
 
 First let me brief you with arch philosophy.Any ubuntu or Linux Mint user might have come across system monitor and all those processes running in them at least one time in their entire period of usage.But none bothered to ask do we really need all these programs. And it is quite surprising to know that ubuntu comes with a lot of software that many of us won't be using. So what is the point of having it installed in the first place. Ubuntu is a good distro for starters , but if you want control over your system and want to make things minimalistic arch is the distro for you.
 
-An installation guide for arch linux. This is quite a similar to what you could get in any site and is always gonna be the same. There is nothing new in this guide. But I have gone through a lot of wikis so that you don't have to if you want to install arch linux.
-I am going to give you a brief guide on installing arch both for offline users and online users . This is just briefed up so that you could remember all this while installing arch and never think of using a pc or instruction.
-First we need to create a create a bootable disk and then start with it , using a command dd.
+###Installation
+As pointed out earlier the entire installation process is done via a console. At this point the only guide for you is either  'elinks'  browser or your memory.
 
->dd bs=4M if=/source/file/iso of=/dev/sdb && sync ( this is in my case, you could find your device using lsblk )
+###Post Installation
 
-Now we have a bootable medium and you could log in to the bootable shell. From there you can partition and then find a suitable partition to install the media and start installation.The above given step is for a usb device.For CD's you have to have other instructions.
- Just remember the following steps properly. First you need to partition your disk properly . This might be a litte difficult . So you have to get familiar with the utilities cgdisk or fdisk.As I am having a MSDOS partition I am using fdisk . The utility fdisk is rather a simple one in its aspects. You don't need a guide to start with it. First type fdisk and then a menu with a single digit commmand will pop up . You could type w for help . After that select the partition you need to install arch linux to. format in my case would be. 
->    	       fdisk /dev/sdb
-Instruction of fdisk is simple as told earlier . You could go through the wiki if you want. This is intended for those who are familiar with all this. 
-[back to the top]
+This is maybe the difficult part where you have to configure your entire system for your use. A GUI interface a window manager or desktop environment that suits your need and gives you comfort could be installed along with the programs that you might need.
+
+###Who this guide is for ?
+
+When I installed arch linux I just read the arch wiki and only the arch wiki. There is nothing that they miss and the only problem with arch wiki is that if you want to make your system like the one you see on many blogs you have to read through a lot of material and trust me that is a lot to read.But it ultimately pays off but most of these things you don't want if you want to have a quick setup all arranged for you.That is what I provide.
+
+##First Steps
+
+First you have to download the iso file for arch linux latest one is preferred and then 
+use the following command to **write  it to your device** of preference , In my case my pendrive which is detected as /dev/sdb . You could run 'lsblk' and find the device that is mounted.
+
+>     dd bs=4M if=/source/file/iso of=/dev/sdb && sync 
+
+Now you have to **make and format a partition** in your system . This is safer and better if you do it via your existing operating system. As an arch linux wannabe you might be having another distro in your PC. So start from there create a new ext4 partition and a swap partition you might be familiar with the size of this . So it is no big deal or you could do it via the bootable you just created. Any way have the partitions ready. I would suggest a minimum size of 5G for arch linux installation . You could format your drive using the command given below. 
+
+
+>      fdisk /dev/sda
+
+for gpt partition table use cgdisk . This utility is similar to fdisk . Use these utility at your own risk as you could easily corrupt your system . Command is more or less the same.  
+>      cgdisk /dev/sda
+
+Add a new partition and format it using mkfs.
+>      mkfs.ext4 /dev/sda1
+
+if you plan to install arch in sda1 . Now make a swap partition as it is recommended for most linux distributions. 
+
+  
+>      mkswap /dev/sda2
+>      swapon /dev/sda2
+
+Now list the partitions using lsblk -f . You could check what you have to done. Now mount the device and now your are in the system .  
+
+>     mount /dev/sda1 /mnt
+
+##Installing the system
+
+Now install the system using the pacstrap script . This will provide a system with minimalistic functionalities
+
+>     pacstrap -i /mnt base
+
+After this you could chroot in the installed system generate and fstab and then get along with the rest of the process . This part I have done in a different way . I will talk about that now. As I have told earlier if you have another linux system running in your system before you installed arch linux and you would like to keep just run 
+>     update-grub 
+
+and your grub will detect arch linux and will will shown up in the boot options. Generating an fstab is the right method to do it but this is a lot safer. Now you have to configure all your small stuff. 
+
+##After Installation
+
 [back to the top ][top]
 

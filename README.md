@@ -61,7 +61,8 @@ This is the trickiest part there is to in arch linux. First its all a hustle you
 >      sudo pacman -S alsamixer alsautils
 
 Start up alsamixer and unmute the channel of speaker or headset according to your use.
-Media codecs could be installed individually but this is a time consuming task. So it is better if you install mplayer. Many media codecs would come along with it 
+Video drivers are an important aspect of installation. Most of the latest computer might be having an intel graphics card. So for this your need to install intel video drivers . To support 3D you have to install mesa.
+Media codecs could be installed individually but this is a time consuming task. So it is better if you install mplayer. Many media codecs would come along with it. Thus we have a fully functional light distro.
 ![image of mplayer](screenshots/screenshot.png)
 
 [back to the top ][top]

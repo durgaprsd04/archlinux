@@ -51,12 +51,18 @@ Now install the system using the pacstrap script . This will provide a system wi
 
 >     pacstrap -i /mnt base
 
-After this you could chroot in the installed system generate and fstab and then get along with the rest of the process . This part I have done in a different way . I will talk about that now. As I have told earlier if you have another linux system running in your system before you installed arch linux and you would like to keep just run 
+After this you could chroot in the installed system generate and fstab and then get along with the rest of the process . This part I have done in a different way . I will talk about that now. As I have told earlier if you have **another linux system**ne running in your system before you installed arch linux and you would like to keep just run 
 >     update-grub 
 
-and your grub will detect arch linux and will will shown up in the boot options. Generating an fstab is the right method to do it but this is a lot safer. Now you have to configure all your small stuff. 
+and your grub will detect arch linux and will show up in the boot options. Generating an fstab is the right method to do it but this is a lot safer. Now you have to configure all your small but important stuff. 
 
 ##After Installation
+This is the trickiest part there is to in arch linux. First its all a hustle you have to find the correct drivers for video and audio.To start with this you have to install alsamixer alsa-utils 
+>      sudo pacman -S alsamixer alsautils
+
+Start up alsamixer and unmute the channel of speaker or headset according to your use.
+Media codecs could be installed individually but this is a time consuming task. So it is better if you install mplayer. Many media codecs would come along with it 
+![image of mplayer](screenshots/screenshot.png)
 
 [back to the top ][top]
 

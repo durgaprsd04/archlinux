@@ -51,7 +51,6 @@ Now install the system using the pacstrap script . This will provide a system wi
 
 >     pacstrap -i /mnt base
 
-<<<<<<< HEAD
 After this you could chroot in the installed system generate and fstab and then get along with the rest of the process . This part I have done in a different way . I will talk about that now. As I have told earlier if you have **another linux system**ne running in your system before you installed arch linux and you would like to keep just run 
 >     update-grub 
 
@@ -64,15 +63,13 @@ This is the trickiest part there is to in arch linux. First its all a hustle you
 Start up alsamixer and unmute the channel of speaker or headset according to your use.
 Video drivers are an important aspect of installation. Most of the latest computer might be having an intel graphics card. So for this your need to install intel video drivers . To support 3D you have to install mesa.
 Media codecs could be installed individually but this is a time consuming task. So it is better if you install mplayer. Many media codecs would come along with it. Thus we have a fully functional light distro.
-![image of mplayer](screenshots/screenshot.png)
-=======
+
 After this you could chroot in the installed system generate and fstab and then get along with the rest of the process . This part I have done in a different way . I will talk about that now. As I have told earlier if you have another linux system running in your system before you installed arch linux and you would like to keep just run 
 >     update-grub 
 
 and your grub will detect arch linux and will will shown up in the boot options. Generating an fstab is the right method to do it but this is a lot safer. Now you have to configure all your small stuff. 
 
 ##After Installation
->>>>>>> 9cd8d5b5fe6dee34fe2759638fadaba9f49ca2da
 
 [back to the top ][top]
 

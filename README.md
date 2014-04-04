@@ -70,6 +70,7 @@ After this you could chroot in the installed system generate and fstab and then 
 and your grub will detect arch linux and will will shown up in the boot options. Generating an fstab is the right method to do it but this is a lot safer. Now you have to configure all your small stuff. 
 
 ##After Installation
+hello
 
 [back to the top ][top]
 
